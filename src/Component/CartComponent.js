@@ -21,7 +21,7 @@ const CartComponent = ({cartData, setCartData}) => {
         onClose={() => setCartData({...cartData, open: false})}
         // onOpen={toggleDrawer(anchor, true)}
         >
-        <PdListingPageForSmallSecWrapper cartData={cartData} />
+        <PdListingPageForSmallSecWrapper cartData={cartData} setCartData={setCartData} />
       </SwipeableDrawer>
     );
 }

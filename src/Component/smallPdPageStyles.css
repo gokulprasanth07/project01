@@ -1,0 +1,33 @@
+
+
+.small-pd-section-card{
+    padding: 6px;
+    border-radius: 6px;
+    @media (min-width: 1200px){
+        width: 330px;
+    }
+}
+
+.small-pd-section-card .section-01{
+    padding: 4px;
+}
+
+.small-pd-section-card .section-02{
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.small-pd-section-card .section-03{
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.small-pd-section-card .section-03 .price-section{
+    padding-top: 0px;
+}
+
+.small-pd-section-card .cta-section {
+    display: flex;
+    padding: 6px;
+    justify-content: space-between;
+}

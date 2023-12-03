@@ -9,6 +9,8 @@ import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CartComponent from "./CartComponent";
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 
 
 const ProductPageComponent = ({data, setCurrPdId, cartData, setCartData}) => {
@@ -38,7 +40,10 @@ const ProductPageComponent = ({data, setCurrPdId, cartData, setCartData}) => {
     },[currnetPdId]);
 
     const cartClickHandler = () => {
+        console.log(">>> otuside cart click", uniqueIds, currnetPdId);
+
         if(!uniqueIds.includes(currnetPdId)){
+            console.log(">>> inside cart click");
             uniqueIds.push(currnetPdId);
             setCartData({...cartData, ids: [...cartData?.ids, currnetPdId], items: [...cartData?.items, currentPd]});
         }
@@ -98,6 +103,12 @@ const ProductPageComponent = ({data, setCurrPdId, cartData, setCartData}) => {
                         {/* </ul> */}
                     </div>
 
+                    <div className="left-section">
+                        <Alert severity="info">
+                            
+                            only <strong>{currentPd.stock}</strong> left.! order soon
+                        </Alert>
+                    </div>
                     {/* price section */}
                     <div className="section-033">
                         <div className="price-section">

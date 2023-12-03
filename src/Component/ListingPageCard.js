@@ -10,9 +10,9 @@ const ListingPagePdCard = ({ data }) => {
     const navigate = useNavigate();
 
 
-    useEffect(() => {
-        console.log("listing page card cmpt", data);
-    }, [data]);
+    // useEffect(() => {
+    //     console.log("listing page card cmpt", data);
+    // }, [data]);
 
     // categories.
 
