@@ -1,7 +1,19 @@
 .pd-page-wrapper{
-    font-family: 'Arial';
-    padding-left: 220px;
-    padding-top: 20px;
+    /* font-family: 'Arial'; */
+
+    @media(min-width: 500px){
+        padding-left: 220px;
+        padding-top: 20px;
+    }
+
+    @media(max-width: 500px){
+        padding-top: 16px;
+        padding-left: 16px;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+    }
+
     display: flex;
     flex-wrap:wrap;
     flex-direction: row;
@@ -9,10 +21,21 @@
 }
 
 .pd-page-wrapper > .pd-section-02 {
+    @media(min-width: 500px){
+        padding-top: 120px;
+        padding-left: 40px;
+        width: 600px;
+    }
+
+    @media(max-width: 500px){
+        padding-top: 16px;
+        padding-left: 20px;
+        width: 100%;
+        /* display: flex; */
+        justify-content: center;
+    }
     /* padding: 20px; */
-    padding-top: 120px;
-    padding-left: 40px;
-    width: 600px;
+
 }
 
 

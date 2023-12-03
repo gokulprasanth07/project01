@@ -34,8 +34,7 @@ const ListingPagePdCard = ({ data }) => {
                         {/* more details section */}
                         {/* <ul> */}
                             <li>
-                                <div>{data?.description}
-                                </div>
+                                <div className="pd-desc">{data?.description}</div>
                             </li>
                             <li><div>{data?.brand} brand</div></li>
                             <li><div>{data?.category} category</div></li>

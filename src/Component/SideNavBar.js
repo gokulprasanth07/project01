@@ -16,6 +16,9 @@ import SpaIcon from '@mui/icons-material/Spa';
 import NoDrinksIcon from '@mui/icons-material/NoDrinks';
 import CoffeeMakerIcon from '@mui/icons-material/CoffeeMaker';
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
+import './ListingPageStyles.css';
+
 
 
 
@@ -56,6 +59,7 @@ const SideNavBar = ({data, setData}) => {
     // }
 
     return (
+     <div className="sidenavbar">
         <Drawer
         sx={{
           width: 200,
@@ -76,7 +80,8 @@ const SideNavBar = ({data, setData}) => {
         variant="permanent"
         anchor="left"
       >
-        <Toolbar />
+        <span style={{padding: '12px'}}><LocalMallIcon fontSize='large'/></span>
+        {/* <Toolbar /> */}
         <Divider />
         <List>
           {/* {['smartphones', 'laptops', 'groceries', 'fragrances', 'skincare','home-decoration' ].map((text, index) => ( */}
@@ -105,6 +110,7 @@ const SideNavBar = ({data, setData}) => {
           ))}
         </List> */}
       </Drawer>
+      </div>
     );
 }
 

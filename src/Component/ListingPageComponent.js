@@ -13,11 +13,11 @@ const ListingPageComponent = ({ data }) => {
 
     return (
             <div className="listing-page-wrapper">
-                <ul>{data && data.products && (
+                {data && data.products && (
                     data.products.map((el) => (
                         <ListingPagePdCard data={el} />
                     ))
-                )}</ul>
+                )}
 
                 {/* PAGINATION */}
                 {/* <Pagination count={10} /> */}
