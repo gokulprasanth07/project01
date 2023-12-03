@@ -135,11 +135,10 @@ const ProductPageComponent = ({data, setCurrPdId, cartData, setCartData}) => {
                 <CartComponent cartData={cartData} setCartData={setCartData}  />
                 
                 
-                <div>
-                <Button variant="contained" color="primary" onClick={openCartSectionHandler}>
-                    Open Cart
-                </Button>
-                        {/* <button onClick={openCartSectionHandler}>cart</button> */}
+                <div className="open-cart-button">
+                    <Button variant="outlined" color="primary" onClick={openCartSectionHandler} endIcon={<ShoppingCartIcon />}>
+                        Cart
+                    </Button>
                 </div>
             </div>
         </>

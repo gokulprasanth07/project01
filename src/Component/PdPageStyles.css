@@ -32,3 +32,9 @@
     padding-top:12px;
 }
 
+.open-cart-button{
+    position: absolute !important;
+    top: 2.5%;
+    right: 2%;
+}
+

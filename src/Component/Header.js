@@ -14,16 +14,12 @@ const Header = ({cartData, setCartData}) => {
         // console.log(">>> inside header, cartData : ", cartData);
     }, []);
 
-    const cartIconClickHandler = () => {
-        setCartData({...cartData, open: true});
-    }
     return (
         <div className='header-wrapper'>
             {/* <AppBar position="static"> */}
                 {/* <Toolbar variant="dense" sx={{ bgcolor: "lightgray", paddingLeft: 200 }}> */}
                     <div className='header-text'>
                         <div><h3 style={{color: 'black'}}>E COMMERCE WEBSITE</h3></div>
-                        <div onClick={cartIconClickHandler} className='cart-icon' style={{color: 'black' }}><ShoppingCartIcon /></div>
                     </div>
    
                 {/* </Toolbar> */}

@@ -80,7 +80,7 @@ const SideNavBar = ({data, setData}) => {
         <Divider />
         <List>
           {/* {['smartphones', 'laptops', 'groceries', 'fragrances', 'skincare','home-decoration' ].map((text, index) => ( */}
-            {category && category.length && category.map((text, index) => (
+            {category && category.length ? category.map((text, index) => (
             <ListItem onClick={() => actionHandler(text)} key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -89,7 +89,7 @@ const SideNavBar = ({data, setData}) => {
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
-          ))}
+          )) : <h3></h3>}
         </List>
         <Divider />
         {/* <List>
