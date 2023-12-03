@@ -1,0 +1,30 @@
+.pd-page-wrapper{
+    font-family: 'Arial';
+    padding-left: 220px;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+    /* background: lightgray; */
+}
+
+.pd-page-wrapper > .pd-section-02 {
+    /* padding: 20px; */
+    padding-top: 120px;
+    padding-left: 40px;
+    width: 600px;
+}
+
+
+.carousal{
+    /* width:30%;
+    height: 30%; */
+    height: 450px;
+    width: 450px;
+
+    @media(max-width: 500px){
+        height: 200px;
+        width: 200px;
+    }
+}
+
