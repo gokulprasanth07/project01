@@ -10,7 +10,9 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CartComponent from "./CartComponent";
 import Alert from '@mui/material/Alert';
+import Box from '@mui/material/Box';
 import AlertTitle from '@mui/material/AlertTitle';
+import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
 
 
 const ProductPageComponent = ({data, setCurrPdId, cartData, setCartData}) => {
@@ -19,9 +21,13 @@ const ProductPageComponent = ({data, setCurrPdId, cartData, setCartData}) => {
     const [currnetPdId, setCurrentPdId] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
     const [uniqueIds, setUniqueIds] = useState([]);
+    const [showSuccessCartToaster, setshowSuccessCartToaster] = useState(false);
+    const [showWarningCartToaster, setshowWarningCartToaster] = useState(false);
+
 
 
     useEffect(() => {
+        console.log("PD:::", currentPd);
             var url = window.location.pathname;
             var current_pd_id = window.location.pathname.substring(url.lastIndexOf('/') + 1);
             console.log("changed", current_pd_id);
@@ -40,12 +46,17 @@ const ProductPageComponent = ({data, setCurrPdId, cartData, setCartData}) => {
     },[currnetPdId]);
 
     const cartClickHandler = () => {
-        console.log(">>> otuside cart click", uniqueIds, currnetPdId);
+        // console.log(">>> otuside cart click", uniqueIds, currnetPdId);
 
         if(!uniqueIds.includes(currnetPdId)){
+            setshowSuccessCartToaster(true);
+            setTimeout(() => setshowSuccessCartToaster(false), 6000);
             console.log(">>> inside cart click");
             uniqueIds.push(currnetPdId);
             setCartData({...cartData, ids: [...cartData?.ids, currnetPdId], items: [...cartData?.items, currentPd]});
+        } else {
+            setshowWarningCartToaster(true);
+            setTimeout(() => setshowWarningCartToaster(false), 6000);
         }
     }
 
@@ -127,7 +138,16 @@ const ProductPageComponent = ({data, setCurrPdId, cartData, setCartData}) => {
                         <span className="cart-button" onClick={cartClickHandler}><Button variant="contained" endIcon={<ShoppingCartIcon />}>
                             Add To Cart
                         </Button></span>
-
+                        <Snackbar open={showSuccessCartToaster} autoHideDuration={6000} anchorOrigin={{vertical: 'bottom', horizontal: 'center'}} >
+                            <Alert severity="success" sx={{ width: '100%' }}>
+                            Item has been added to cart
+                            </Alert>
+                        </Snackbar>
+                        <Snackbar open={showWarningCartToaster} autoHideDuration={6000} anchorOrigin={{vertical: 'bottom', horizontal: 'center'}} >
+                            <Alert severity="warning" sx={{ width: '100%' }}>
+                            Same item cannot be added to cart
+                            </Alert>
+                        </Snackbar>
                     </div>
                 </div>
 

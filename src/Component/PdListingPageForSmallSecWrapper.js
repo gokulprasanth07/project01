@@ -15,7 +15,7 @@ const PdListingPageForSmallSecWrapper = ({cartData, setCartData}) => {
     if (!cartData?.items || cartData?.items?.length === 0) {
       return (
         <Alert severity="warning">
-          <AlertTitle>Warning</AlertTitle>
+          <AlertTitle>No Products</AlertTitle>
           There are no products added in the cart<br />
           <strong>Please add some products to cart</strong>
         </Alert>
