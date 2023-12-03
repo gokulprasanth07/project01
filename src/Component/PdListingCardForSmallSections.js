@@ -7,6 +7,15 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import "./smallPdPageStyles.css"
 
 const PdListingCardForSmallSections = ({pd, setCartData, cartData}) => {
+
+    const removeFromCartActionHandler = () => {
+
+        let deletedArrItems = cartData?.items.filter((it) => it.id !== pd?.id);
+        let deletedArrIds = cartData?.ids.filter((it) => it !== pd?.id);
+        setCartData({'ids': deletedArrIds, 'items': deletedArrItems});
+        // console.log(">>> PD", pd?.id, pd?.title, deletedArrItems, deletedArrIds);
+    }
+
     return (
         <div className="small-pd-section-card">
         <Paper elevation={20}>
@@ -47,7 +56,7 @@ const PdListingCardForSmallSections = ({pd, setCartData, cartData}) => {
 
                 {/* CTA section */}
                 <div className="cta-section">
-                    <div onClick={() => {}}>
+                    <div onClick={removeFromCartActionHandler}>
                         <Button size="small" variant="outlined" endIcon={<RemoveShoppingCartIcon />}>
                             Remove from cart
                         </Button>
