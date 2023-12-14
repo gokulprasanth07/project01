@@ -14,7 +14,7 @@ const PdListingCardForSmallSections = ({ pd, setCartData, cartData }) => {
   };
 
   return (
-    <div className="small-pd-section-card">
+    <div className="small-pd-section-card" key={pd.id}>
       <Paper elevation={20}>
         <div className="section-01">
           <img className="product-image" src={pd.images[0]} />

@@ -20,6 +20,7 @@ const ListingPagePdCard = ({ data }) => {
       onClick={() => navigate(`/product-page/${data?.id}`)}
       className="listing-card-wrapper"
       ref={ref}
+      key={data?.id}
     >
       {insideView ? (<div className="lazy-load-container.in-view"><Paper elevation={8}>
         <div className="listing-card">
@@ -41,7 +42,6 @@ const ListingPagePdCard = ({ data }) => {
             </div>
 
             {/* more details section */}
-            <br />
             <li className="pd-desc">
               <div>{data?.description}</div>
             </li>

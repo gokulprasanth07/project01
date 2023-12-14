@@ -62,8 +62,8 @@ const SideNavBar = ({ data, setData }) => {
         }}
         PaperProps={{
           sx: {
-            backgroundColor: "lightgrey",
-            color: "gray",
+            backgroundColor: "lightsteelblue",
+            color: "black",
           }
         }}
         variant="permanent"
