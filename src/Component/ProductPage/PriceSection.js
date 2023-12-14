@@ -1,10 +1,15 @@
-import Button from '@mui/material/Button';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import Alert from '@mui/material/Alert';
-import Snackbar from '@mui/material/Snackbar';
+import Button from "@mui/material/Button";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import Alert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
 
-const PriceSection = ({ currentPd, cartClickHandler, showSuccessCartToaster, showWarningCartToaster}) => {
+const PriceSection = ({
+  currentPd,
+  cartClickHandler,
+  showSuccessCartToaster,
+  showWarningCartToaster,
+}) => {
   return (
     <div className="section-033">
       <div className="price-section">

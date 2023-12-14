@@ -1,4 +1,4 @@
-import   React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Styles/ListingPageStyles.css';
 
 import Drawer from '@mui/material/Drawer';
@@ -20,41 +20,39 @@ import CoffeeMakerIcon from '@mui/icons-material/CoffeeMaker';
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 
+const SideNavBar = ({ data, setData }) => {
 
-
-const SideNavBar = ({data, setData}) => {
-
-    const[category, setCategory] = useState([]);
-    useEffect(() => {
-        let categories = [];
-        // ['smartphones', 'laptops', 'fragrances', 'skincare', 'groceries', 'home-decoration']
-        data && data.products && data.products.length && data.products.map((it) => {
-            if(!categories.includes(it?.category)){
-                categories.push(it?.category);
-            }
-        })
-        if(categories && categories.length){
-            setCategory(categories);
-        }
-        console.log("HERE :", categories);
-    }, [data && data?.products]);
-    
-    const getIcon = (text) => (
-        (text === "smartphones" ? <PhoneAndroid /> : (text === "laptops" ? <Devices/> : (text === "groceries" ? <LocalGroceryStoreIcon/> : (text === "skincare" ? <SpaIcon /> : (text === "home-decoration" ? <CoffeeMakerIcon /> : (text === "fragrances" ? <AccessibilityIcon /> : ""))))))
-    );
-
-    const actionHandler = (text) => {
-        console.log("some");
-        console.log("acn hand", data && data.products && data.products.length && data.products.filter(it => it.category === text));
-        let filteredData = [];
-        filteredData = data && data.products && data.products.length && data.products.filter(it => it.category === text);
-        let newPdData = {'products': filteredData};
-        setData(newPdData);
+  const [category, setCategory] = useState([]);
+  useEffect(() => {
+    let categories = [];
+    // ['smartphones', 'laptops', 'fragrances', 'skincare', 'groceries', 'home-decoration']
+    data && data.products && data.products.length && data.products.map((it) => {
+      if (!categories.includes(it?.category)) {
+        categories.push(it?.category);
+      }
+    })
+    if (categories && categories.length) {
+      setCategory(categories);
     }
+    console.log("HERE :", categories);
+  }, [data && data?.products]);
 
-    return (
-     <div className="sidenavbar">
-        <Drawer
+  const getIcon = (text) => (
+    (text === "smartphones" ? <PhoneAndroid /> : (text === "laptops" ? <Devices /> : (text === "groceries" ? <LocalGroceryStoreIcon /> : (text === "skincare" ? <SpaIcon /> : (text === "home-decoration" ? <CoffeeMakerIcon /> : (text === "fragrances" ? <AccessibilityIcon /> : ""))))))
+  );
+
+  const actionHandler = (text) => {
+    console.log("some");
+    console.log("acn hand", data && data.products && data.products.length && data.products.filter(it => it.category === text));
+    let filteredData = [];
+    filteredData = data && data.products && data.products.length && data.products.filter(it => it.category === text);
+    let newPdData = { 'products': filteredData };
+    setData(newPdData);
+  }
+
+  return (
+    <div className="sidenavbar">
+      <Drawer
         sx={{
           width: 200,
           flexShrink: 0,
@@ -64,24 +62,24 @@ const SideNavBar = ({data, setData}) => {
           },
         }}
         PaperProps={{
-            sx: {
-              backgroundColor: "lightgrey",
-              color: "gray",
-            }
-          }}
+          sx: {
+            backgroundColor: "lightgrey",
+            color: "gray",
+          }
+        }}
         variant="permanent"
         anchor="left"
       >
-        <span style={{padding: '12px'}}><LocalMallIcon fontSize='large'/></span>
+        <span style={{ padding: '12px' }}><LocalMallIcon fontSize='large' /></span>
         {/* <Toolbar /> */}
         <Divider />
         <List>
           {/* {['smartphones', 'laptops', 'groceries', 'fragrances', 'skincare','home-decoration' ].map((text, index) => ( */}
-            {category && category.length ? category.map((text, index) => (
+          {category && category.length ? category.map((text, index) => (
             <ListItem onClick={() => actionHandler(text)} key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                    {getIcon(text)}
+                  {getIcon(text)}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -90,8 +88,8 @@ const SideNavBar = ({data, setData}) => {
         </List>
         <Divider />
       </Drawer>
-      </div>
-    );
+    </div>
+  );
 }
 
 export default SideNavBar;

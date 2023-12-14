@@ -9,11 +9,11 @@ import PriceSection from "./PriceSection";
 import CartComponent from "../CartPage/CartComponent";
 
 // styles
-import "../Styles/PdPageStyles.css"; 
+import "../Styles/PdPageStyles.css";
 import Button from "@mui/material/Button";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-const ProductPageComponent = ({ data, setCurrPdId, cartData, setCartData }) => {
+const ProductPageComponent = ({ data, cartData, setCartData }) => {
   const [currentPd, setCurrentPd] = useState({});
   const [currentPdId, setCurrentPdId] = useState(1);
   const [uniquePdIds, setUniquePdIds] = useState([]);
@@ -28,7 +28,6 @@ const ProductPageComponent = ({ data, setCurrPdId, cartData, setCartData }) => {
       url.lastIndexOf("/") + 1
     );
     setCurrentPdId(current_pd_id);
-    setCurrPdId(current_pd_id);
   }, []);
 
   useEffect(() => {
