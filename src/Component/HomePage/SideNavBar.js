@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import '../Styles/ListingPageStyles.css';
 
 import Drawer from '@mui/material/Drawer';
@@ -34,16 +34,15 @@ const SideNavBar = ({ data, setData }) => {
     if (categories && categories.length) {
       setCategory(categories);
     }
-    console.log("HERE :", categories);
   }, [data && data?.products]);
 
   const getIcon = (text) => (
     (text === "smartphones" ? <PhoneAndroid /> : (text === "laptops" ? <Devices /> : (text === "groceries" ? <LocalGroceryStoreIcon /> : (text === "skincare" ? <SpaIcon /> : (text === "home-decoration" ? <CoffeeMakerIcon /> : (text === "fragrances" ? <AccessibilityIcon /> : ""))))))
   );
 
+  const getIconMemoized = useCallback((text) => getIcon(text), [getIcon]);
+
   const actionHandler = (text) => {
-    console.log("some");
-    console.log("acn hand", data && data.products && data.products.length && data.products.filter(it => it.category === text));
     let filteredData = [];
     filteredData = data && data.products && data.products.length && data.products.filter(it => it.category === text);
     let newPdData = { 'products': filteredData };
@@ -79,7 +78,7 @@ const SideNavBar = ({ data, setData }) => {
             <ListItem onClick={() => actionHandler(text)} key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  {getIcon(text)}
+                  {getIconMemoized(text)}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>

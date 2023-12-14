@@ -1,5 +1,9 @@
+import React, { Suspense } from "react";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import PdListingPageForSmallSecWrapper from "./PdListingPageForSmallSecWrapper";
+
+const PdListingPageForSmallSecWrapperComponent = React.lazy(() =>
+  import("./PdListingPageForSmallSecWrapper")
+);
 
 const CartComponent = ({ cartData, setCartData }) => {
   return (
@@ -10,10 +14,12 @@ const CartComponent = ({ cartData, setCartData }) => {
       onOpen={() => setCartData({ ...cartData, open: true })}
       onClose={() => setCartData({ ...cartData, open: false })}
     >
-      <PdListingPageForSmallSecWrapper
-        cartData={cartData}
-        setCartData={setCartData}
-      />
+      <Suspense fallback={() => <>...loading...</>}>
+        <PdListingPageForSmallSecWrapperComponent
+          cartData={cartData}
+          setCartData={setCartData}
+        />
+      </Suspense>
     </SwipeableDrawer>
   );
 };

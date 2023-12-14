@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 
 // component
 import Header from "../HomePage/Header";
@@ -40,6 +40,7 @@ const ProductPageComponent = ({ data, cartData, setCartData }) => {
     setIsLoading(false);
   }, [currentPdId]);
 
+
   const cartClickHandler = () => {
     if (!uniquePdIds.includes(currentPdId)) {
       setshowSuccessCartToaster(true);
@@ -55,6 +56,8 @@ const ProductPageComponent = ({ data, cartData, setCartData }) => {
       setTimeout(() => setshowWarningCartToaster(false), 6000);
     }
   };
+
+//   const cartClickHandlerMemoized = useMemo(() => cartClickHandler(), [uniquePdIds, currentPd]);
 
   if (!currentPd || (currentPd && currentPd[0] && currentPd[0].length === 0)) {
     return null;
@@ -87,7 +90,7 @@ const ProductPageComponent = ({ data, cartData, setCartData }) => {
             currentPd={currentPd}
             showSuccessCartToaster={showSuccessCartToaster}
             showWarningCartToaster={showWarningCartToaster}
-            cartClickHandler={cartClickHandler}
+            cartClickHandler={cartClickHandler} 
           />
         </div>
         {/* cart */}

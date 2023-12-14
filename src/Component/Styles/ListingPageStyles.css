@@ -154,3 +154,14 @@
         display: none;
      }
 }
+
+
+.lazy-load-container {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .lazy-load-container.in-view {
+    opacity: 1;
+  }
+  

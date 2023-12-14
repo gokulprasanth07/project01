@@ -2,6 +2,7 @@ import Rating from "@mui/material/Rating";
 import Alert from "@mui/material/Alert";
 
 const ProductDetailsSection = ({ currentPd }) => {
+    console.log(">>> PD :", Math.round(currentPd?.rating * 10) / 10 );
   return (
     <>
       <div className="section-022">
