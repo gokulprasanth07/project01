@@ -1,27 +1,30 @@
 import React, { useEffect, useState } from "react";
 
+// component
+import Header from "../HomePage/Header";
+import SideNavBar from "../HomePage/SideNavBar";
 import Carousal from "./Carousal";
 import ProductDetailsSection from "./ProductDetailsSection";
 import PriceSection from "./PriceSection";
-import "../Styles/PdPageStyles.css";
-
-import Header from "../HomePage/Header";
-import SideNavBar from "../HomePage/SideNavBar";
-import Button from "@mui/material/Button";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CartComponent from "../CartPage/CartComponent";
 
+// styles
+import "../Styles/PdPageStyles.css"; 
+import Button from "@mui/material/Button";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
 const ProductPageComponent = ({ data, setCurrPdId, cartData, setCartData }) => {
-  const [currentPd, setCurrentPD] = useState({});
-  const [currnetPdId, setCurrentPdId] = useState(1);
+  const [currentPd, setCurrentPd] = useState({});
+  const [currentPdId, setCurrentPdId] = useState(1);
+  const [uniquePdIds, setUniquePdIds] = useState([]);
+
   const [isLoading, setIsLoading] = useState(true);
-  const [uniqueIds, setUniqueIds] = useState([]);
   const [showSuccessCartToaster, setshowSuccessCartToaster] = useState(false);
   const [showWarningCartToaster, setshowWarningCartToaster] = useState(false);
 
   useEffect(() => {
-    var url = window.location.pathname;
-    var current_pd_id = window.location.pathname.substring(
+    let url = window.location.pathname;
+    let current_pd_id = window.location.pathname.substring(
       url.lastIndexOf("/") + 1
     );
     setCurrentPdId(current_pd_id);
@@ -29,23 +32,23 @@ const ProductPageComponent = ({ data, setCurrPdId, cartData, setCartData }) => {
   }, []);
 
   useEffect(() => {
-    if (data && Object.keys(data?.products).length && currnetPdId) {
+    if (data && Object.keys(data?.products).length && currentPdId) {
       let currPd = data.products?.filter(
-        (it) => it?.id === Number(currnetPdId)
+        (it) => it?.id === Number(currentPdId)
       );
-      setCurrentPD(currPd[0]);
+      setCurrentPd(currPd[0]);
     }
     setIsLoading(false);
-  }, [currnetPdId]);
+  }, [currentPdId]);
 
   const cartClickHandler = () => {
-    if (!uniqueIds.includes(currnetPdId)) {
+    if (!uniquePdIds.includes(currentPdId)) {
       setshowSuccessCartToaster(true);
       setTimeout(() => setshowSuccessCartToaster(false), 6000);
-      uniqueIds.push(currnetPdId);
+      setUniquePdIds([...uniquePdIds, currentPdId]);
       setCartData({
         ...cartData,
-        ids: [...cartData?.ids, currnetPdId],
+        ids: [...cartData?.ids, currentPdId],
         items: [...cartData?.items, currentPd],
       });
     } else {
