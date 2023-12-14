@@ -27,15 +27,48 @@
         width: 600px;
     }
 
-    @media(max-width: 500px){
-        padding-top: 16px;
+    @media(max-width: 1200px) and (min-width: 600px){
+        /* padding-top: 16px; */
         padding-left: 20px;
         width: 100%;
         /* display: flex; */
         justify-content: center;
+        /* position: relative; */
+        padding-top: 40%;
+    }
+
+    @media(max-width: 600px){
+        padding-top: 60%;
     }
     /* padding: 20px; */
 
+}
+
+.cta-section{
+
+    padding-left: 0 !important;
+    padding-right: 12px;
+    @media (max-width: 500px){
+        min-width:90%;
+        /* background: lightgrey; */
+        position: fixed !important;
+        bottom: 0;
+        /* margin-right: 9px; */
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.cta-section .wishlist{
+    @media (max-width: 500px){
+        background: lightblue;
+    }
+}
+
+.space-cta-btns{
+    @media (max-width: 320px){
+        display: none;
+    }
 }
 
 
@@ -59,5 +92,11 @@
     position: absolute !important;
     top: 1.6%;
     right: 2%;
+}
+
+.cta-section {
+    @media(min-width: 1200px){
+        padding-top: 36px;
+    }
 }
 
