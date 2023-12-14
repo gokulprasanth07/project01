@@ -2,17 +2,15 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import React, {useEffect, useState} from "react";
 import Rating from '@mui/material/Rating';
-import './PdPageStyles.css';
-import Header from "./Header";
-import SideNavBar from "./SideNavBar";
+import '../Styles/PdPageStyles.css';
+import Header from "../HomePage/Header";
+import SideNavBar from "../HomePage/SideNavBar";
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import CartComponent from "./CartComponent";
+import CartComponent from "../CartPage/CartComponent";
 import Alert from '@mui/material/Alert';
-import Box from '@mui/material/Box';
-import AlertTitle from '@mui/material/AlertTitle';
-import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
+import Snackbar from '@mui/material/Snackbar';
 
 
 const ProductPageComponent = ({data, setCurrPdId, cartData, setCartData}) => {
@@ -130,14 +128,16 @@ const ProductPageComponent = ({data, setCurrPdId, cartData, setCartData}) => {
 
                         {/*CTA button section */}
                         <br /><br /><br />
-                        <span className="wishlist">
-                            <Button variant="outlined" endIcon={<FavoriteBorderIcon />}>
-                                Wishlist
-                            </Button></span>    
-                         &nbsp;&nbsp;&nbsp;
-                        <span className="cart-button" onClick={cartClickHandler}><Button variant="contained" endIcon={<ShoppingCartIcon />}>
-                            Add To Cart
-                        </Button></span>
+                        <div className="cta-section">
+                            <span className="wishlist">
+                                <Button variant="outlined" endIcon={<FavoriteBorderIcon />}>
+                                    Wishlist
+                                </Button></span>    
+                            <span className="space-cta-btns"> &nbsp;&nbsp;&nbsp; </span>
+                            <span className="cart-button" onClick={cartClickHandler}><Button variant="contained" endIcon={<ShoppingCartIcon />}>
+                                Add To Cart
+                            </Button></span>
+                        </div>
                         <Snackbar open={showSuccessCartToaster} autoHideDuration={6000} anchorOrigin={{vertical: 'bottom', horizontal: 'center'}} >
                             <Alert severity="success" sx={{ width: '100%' }}>
                             Item has been added to cart

@@ -1,3 +1,16 @@
+
+function temp(obj){
+  for(let key in obj){
+    if(typeof(obj[key] === "object")){
+      temp(obj[key]);
+    } else {
+      console.log(obj[key]);
+    }
+  }
+}
+
+
+
 const temp = {
     empName: 'Ovaledge',
     Age: 21,
@@ -18,3 +31,5 @@ const temp = {
       }
     }
   }
+
+  console.log(yes(temp));

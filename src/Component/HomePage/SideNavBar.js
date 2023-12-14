@@ -1,32 +1,30 @@
 import   React, {useState, useEffect} from 'react';
+import '../Styles/ListingPageStyles.css';
+
 import Drawer from '@mui/material/Drawer';
-import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
+
+//List 
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+
+// icons
 import PhoneAndroid from '@mui/icons-material/PhoneAndroid';
 import Devices from '@mui/icons-material/Devices';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
-import { Laptop } from '@mui/icons-material';
 import SpaIcon from '@mui/icons-material/Spa';
-import NoDrinksIcon from '@mui/icons-material/NoDrinks';
 import CoffeeMakerIcon from '@mui/icons-material/CoffeeMaker';
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
-import './ListingPageStyles.css';
-
-
 
 
 
 const SideNavBar = ({data, setData}) => {
 
     const[category, setCategory] = useState([]);
-
     useEffect(() => {
         let categories = [];
         // ['smartphones', 'laptops', 'fragrances', 'skincare', 'groceries', 'home-decoration']
@@ -54,17 +52,11 @@ const SideNavBar = ({data, setData}) => {
         setData(newPdData);
     }
 
-    // if(category && category.length){
-    //     return null;
-    // }
-
     return (
      <div className="sidenavbar">
         <Drawer
         sx={{
           width: 200,
-        //   backgroundColor: "pink",
-        //   color: "red",
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             width: 200,
@@ -94,25 +86,12 @@ const SideNavBar = ({data, setData}) => {
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
-          )) : <h3></h3>}
+          )) : ""}
         </List>
         <Divider />
-        {/* <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <PhoneAndroid />
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}
       </Drawer>
       </div>
     );
 }
-
 
 export default SideNavBar;

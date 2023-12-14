@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Rating from '@mui/material/Rating';
 import Paper from '@mui/material/Paper';
 
 
-import './ListingPageStyles.css';
+import '../Styles/ListingPageStyles.css';
 import { useNavigate } from "react-router-dom";
 
 const ListingPagePdCard = ({ data }) => {
+
     const navigate = useNavigate();
-
-
-    // useEffect(() => {
-    //     console.log("listing page card cmpt", data);
-    // }, [data]);
-
-    // categories.
-
     return (
         <div onClick={() => navigate(`/product-page/${data?.id}`)} className="listing-card-wrapper">
             <Paper elevation={8}>
@@ -32,13 +25,12 @@ const ListingPagePdCard = ({ data }) => {
                         </div>
 
                         {/* more details section */}
-                        {/* <ul> */}
-                            <li>
-                                <div className="pd-desc">{data?.description}</div>
+                        <br />
+                            <li className="pd-desc">
+                                <div >{data?.description}</div>
                             </li>
                             <li><div>{data?.brand} brand</div></li>
                             <li><div>{data?.category} category</div></li>
-                        {/* </ul> */}
                     </div>
 
                     {/* price section */}
@@ -48,7 +40,6 @@ const ListingPagePdCard = ({ data }) => {
                             <span className="discounted-price"><del>₹{Math.ceil((data?.price*data?.discountPercentage)/100) + data?.price}</del></span> &nbsp;
                             <span className="discount">{Math.round(data?.discountPercentage)}% discount</span>
                         </div>
-                            
                     </div>
                 </div>
             </ Paper>
@@ -57,4 +48,4 @@ const ListingPagePdCard = ({ data }) => {
 }
 
 
-export default ListingPagePdCard
+export default ListingPagePdCard;

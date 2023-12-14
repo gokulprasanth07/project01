@@ -1,25 +1,21 @@
-import React, { useEffect, useState } from "react";
-import Rating from '@mui/material/Rating';
+import React from "react";
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import "./smallPdPageStyles.css"
+import "../Styles/smallPdPageStyles.css";
 
 const PdListingCardForSmallSections = ({pd, setCartData, cartData}) => {
 
     const removeFromCartActionHandler = () => {
-
         let deletedArrItems = cartData?.items.filter((it) => it.id !== pd?.id);
         let deletedArrIds = cartData?.ids.filter((it) => it !== pd?.id);
         setCartData({'ids': deletedArrIds, 'items': deletedArrItems});
-        // console.log(">>> PD", pd?.id, pd?.title, deletedArrItems, deletedArrIds);
     }
 
     return (
         <div className="small-pd-section-card">
         <Paper elevation={20}>
-                {/* <div className="listing-card"> */}
                     <div className="section-01">
                         <img className="product-image" src={pd.images[0]} />
                     </div>
@@ -33,10 +29,6 @@ const PdListingCardForSmallSections = ({pd, setCartData, cartData}) => {
 
                         {/* more details section */}
                         <ul>
-                            {/* <li>
-                                <div>{pd?.description}
-                                </div>
-                            </li> */}
                             <li><div>{pd?.brand} brand</div></li>
                             <li><div>{pd?.category} category</div></li>
                             <li><div>only {pd.stock} left.!</div></li>
@@ -52,7 +44,6 @@ const PdListingCardForSmallSections = ({pd, setCartData, cartData}) => {
                         </div>
                             
                     </div>
-                {/* </div> */}
 
                 {/* CTA section */}
                 <div className="cta-section">

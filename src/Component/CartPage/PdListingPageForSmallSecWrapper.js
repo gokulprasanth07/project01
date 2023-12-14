@@ -1,17 +1,8 @@
-import { useEffect, useContext,useState  } from "react";
 import PdListingCardForSmallSections from "./PdListingCardForSmallSections";
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 
 const PdListingPageForSmallSecWrapper = ({cartData, setCartData}) => {
-
-    const [cartSectionPdData, setcartSectionPdData] = useState();
-    useEffect(() => {
-        console.log(">>> cartData in wrapper cmpt :", cartData?.items);
-        // setcartSectionPdData();
-    }, [cartData]);
-
-
     if (!cartData?.items || cartData?.items?.length === 0) {
       return (
         <Alert severity="warning">
@@ -27,7 +18,6 @@ const PdListingPageForSmallSecWrapper = ({cartData, setCartData}) => {
             <PdListingCardForSmallSections pd={pd} setCartData={setCartData} cartData={cartData} />
         ))}
         </div>
-        
     );
 }
 

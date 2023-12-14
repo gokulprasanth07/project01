@@ -1,15 +1,8 @@
-import ListingPageContainer from "./ListingPageContainer";
+import ListingPageContainer from "../ListingPage/ListingPageContainer";
 import Header from "./Header";
-import { useEffect, useContext,useState  } from "react";
 import SideNavBar from "./SideNavBar";
-// import { useEffect } from "react";
 
 const HomePageComponent = ({data, setData, cartData, setCartData }) => {
-
-    useEffect(() => {
-        // console.log(">>> HP CHANGESSSS...", setCartData);
-    }, [data]);
-
 
     return (
         <>
