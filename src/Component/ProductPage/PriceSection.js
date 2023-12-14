@@ -3,6 +3,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
+import "../Styles/PdPageStyles.css";
 
 const PriceSection = ({
   currentPd,
@@ -31,9 +32,6 @@ const PriceSection = ({
       </div>
 
       {/*CTA button section */}
-      <br />
-      <br />
-      <br />
       <div className="cta-section">
         <span className="wishlist">
           <Button variant="outlined" endIcon={<FavoriteBorderIcon />}>

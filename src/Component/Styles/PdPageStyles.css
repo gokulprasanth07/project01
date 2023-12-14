@@ -94,3 +94,9 @@
     right: 2%;
 }
 
+.cta-section {
+    @media(min-width: 1200px){
+        padding-top: 36px;
+    }
+}
+

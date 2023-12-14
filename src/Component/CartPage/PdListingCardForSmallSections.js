@@ -6,6 +6,7 @@ import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import "../Styles/smallPdPageStyles.css";
 
 const PdListingCardForSmallSections = ({ pd, setCartData, cartData }) => {
+
   const removeFromCartActionHandler = () => {
     let deletedArrItems = cartData?.items.filter((it) => it.id !== pd?.id);
     let deletedArrIds = cartData?.ids.filter((it) => it !== pd?.id);
@@ -22,12 +23,6 @@ const PdListingCardForSmallSections = ({ pd, setCartData, cartData }) => {
           <div className="title">
             <strong>{pd?.title}</strong>
           </div>
-
-          {/* ratings section */}
-          {/* <div className="rating-container"><span className="rating-no">{Math.round(pd?.rating * 10) / 10}</span> &nbsp;
-                            <Rating name="read-only" value={pd?.rating} readOnly />
-                        </div> */}
-
           {/* more details section */}
           <ul>
             <li>
@@ -41,7 +36,6 @@ const PdListingCardForSmallSections = ({ pd, setCartData, cartData }) => {
             </li>
           </ul>
         </div>
-
         {/* price section */}
         <div className="section-03">
           <div className="price-section">
@@ -61,10 +55,9 @@ const PdListingCardForSmallSections = ({ pd, setCartData, cartData }) => {
             </span>
           </div>
         </div>
-
         {/* CTA section */}
         <div className="cta-section">
-          <div onClick={removeFromCartActionHandler}>
+          <div className="remove-from-cart-wrapper" onClick={removeFromCartActionHandler}>
             <Button
               size="small"
               variant="outlined"
