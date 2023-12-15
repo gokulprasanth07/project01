@@ -30,8 +30,11 @@ In the project directory, you can run:
 2) used suspense and lazy together in some pd & cart section components so that the components will be imported dynamically
 3) used useMemo & useCallback although had very little places where i can actually wrap and use memoize
 
-## other possible optimizations that can be performed which are out of scope of this project
-1) implement chunk level split logic in webpack
+## other possible optimizations that can be performed which are out of scope of this project (given more time will be able to implement the following points)
+1) implement (chunk level) split logic and further opimtizations in webpack
 2) use throttle for CTA button clicks (here i have already restricted that a user can add only one pd to cart)
-3) api level paginating data, so that data itself will be loaded only in limits not alltogether
+3) implementing pagination in listing page, so that we can use api to fetch  like n no of products in one page (with limit) and then progressively fetch slices of remaining products on subsquent page changes.
+4) debounce or throttling on CTA button clicks
+5) FE cache on page level or listing products data
+6) further add responsive design so that it is even more fluid with the transitions across all resolutions.
 
